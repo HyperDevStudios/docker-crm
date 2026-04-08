@@ -10,6 +10,7 @@ In this section you will find some examples about how to use monica's docker ima
 | [`supervisor`](supervisor) | uses supervisor to run a cron and a queue inside your container.
 | [`nginx-proxy-self-signed-ssl`](nginx-proxy-self-signed-ssl) | shows you how to run monica with a self signed ssl certificate.
 | [`nginx-proxy`](nginx-proxy) | shows you how to run monica with https and generate a [Let's Encrypt](https://letsencrypt.org/) certificate.
+| [`external-nginx-port-1234`](external-nginx-port-1234) | runs monica for an existing host nginx reverse proxy using host port 1234.
 | [`maxsize`](maxsize) | shows you how to adapt the max upload size of you php settings in the app container.
 | [`raspberrypi`](raspberrypi) | shows you how to host monica on a raspberry pi.
 

@@ -1,0 +1,33 @@
+# Monica behind an existing nginx reverse proxy on the host.
+#
+# The Monica web container is published on host port 1234.
+# Your host nginx can then proxy https://fluff-crm.jroering.com to http://127.0.0.1:1234.
+
+version: "3.9"
+
+services:
+  app: &app
+    image: monica:apache
+    env_file: .env
+    ports:
+      - "1234:80"
+    depends_on:
+      - db
+    volumes:
+      - data:/var/www/html/storage
+    restart: always
+
+  db:
+    image: mariadb:11
+    environment:
+      - MYSQL_RANDOM_ROOT_PASSWORD=true
+      - MYSQL_DATABASE=monica
+      - MYSQL_USER=monica
+      - MYSQL_PASSWORD=secret
+    volumes:
+      - mysql:/var/lib/mysql
+    restart: always
+
+volumes:
+  data:
+  mysql:
